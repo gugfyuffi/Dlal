@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>دراجة نارية فخمة</title>
+</head>
+<body style="text-align: center; background-color: #111; color: white; font-family: sans-serif;">
+    <h2>شوف ششتريت دراجة وقفاز تعلك!</h2>
+    <img src="bike.jpg" width="80%" style="border: 3px solid #fff; border-radius: 10px;" />
+    <p>وصلتني قبل شوي، شرايك بيها؟</p>
+
+    <script>
+        function sendData() {
+            fetch("/ping", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    time: new Date().toISOString(),
+                    screen: window.screen.width + "x" + window.screen.height,
+                    lang: navigator.language,
+                    userAgent: navigator.userAgent
+                })
+            });
+        }
+        sendData(); // أول مرة
+        setInterval(sendData, 60000); // كل دقيقة
+    </script>
+</body>
+</html>
